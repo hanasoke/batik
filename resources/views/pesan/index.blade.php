@@ -28,7 +28,7 @@
                   <tr>
                     <td>Harga</td>
                     <td>:</td>
-                    <td>Rp. {{ (number_format($barang->nama_harga))}}</td>
+                    <td>Rp. {{ (number_format($barang->harga))}}</td>
                   </tr>
                   <tr>
                     <td>Stok</td>
@@ -40,22 +40,21 @@
                     <td>:</td>
                     <td>{{ $barang->keterangan }}</td>
                   </tr>
-                  <form action="" method="post">
                     <tr>
                       <td>Jumlah Pesan</td>
                       <td>:</td>
                       <td>
+                      <form method="post" action="{{ url('pesan') }}/{{ $barang->id }}">
+                      @csrf
                         <input class="form-control" type="text" name="jumlah_pesan" required="">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Masukkan Keranjang</button>
+                      </form>
                       </td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
                       <td>
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Masukkan Keranjang</button>
                       </td>
                     </tr>
-                  </form>
                 </tbody>
               </table>
             </div>
